@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\Debit\" />
+    <Folder Include="Commands\Credit\" />
+    <Folder Include="Entities\Base\" />
+    <Folder Include="Entities\Validators\" />
+    <Folder Include="Handlers\Credit\" />
+    <Folder Include="Handlers\Debit\" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+  </ItemGroup>
+
+</Project>
