@@ -5,13 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\Debit\" />
-    <Folder Include="Commands\Credit\" />
     <Folder Include="Entities\Base\" />
-    <Folder Include="Entities\Validators\" />
-    <Folder Include="Handlers\Credit\" />
-    <Folder Include="Handlers\Debit\" />
-    <Folder Include="Interfaces\" />
+    <Folder Include="Commom\" />
+    <Folder Include="EventHandlers\" />
+    <Folder Include="Notifications\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,44 +1,55 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using MediatR;
-using RC.CheckingAccount.Domain.Commands;
 using RC.CheckingAccount.Domain.Commands.Client;
+using RC.CheckingAccount.Domain.Interfaces.Core;
+using RC.CheckingAccount.Domain.Notifications;
 
 namespace RC.CheckingAccount.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CheckingAccountsController : ControllerBase
+    public class CheckingAccountsController : CustomApiController
     {
-        private readonly IMediator _mediator;
-
-        public CheckingAccountsController(IMediator mediator)
+        private IMediator _mediator;
+        public CheckingAccountsController(DomainNotificationHandler notifications, IMediatorHandler mediatorHandler, IMediator mediator) : base(notifications, mediatorHandler)
         {
             _mediator = mediator;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateClient(CreateClientCommand clientCommand)
+        public async Task<IActionResult> CreateClient(CreateClientCommand createClientCommand)
         {
-            var client = await _mediator.Send(clientCommand);
+            var client = await _mediator.Send(createClientCommand);
 
-            if (client is not { IsValid: true })
-                return BadRequest();
+            //if (client is { IsValid: true })
+            //    return BadRequest();
 
-            return Ok(client);
+            return Response();
         }
 
-        [HttpPost]
-        public IEnumerable<string> Debit()
+        [HttpPut]
+        public async Task<IActionResult> UpdateClient([FromBody] UpdateClientCommand updateClientCommand)
         {
-            return new string[] { "value1", "value2" };
+            var client = await _mediator.Send(updateClientCommand);
+
+            //if (client is not { IsValid: true })
+            //    return BadRequest();
+
+            return Ok();
         }
 
-        [HttpGet]
-        public string Credit()
-        {
-            return "value";
-        }
+        //[HttpPost]
+        //public IEnumerable<string> Debit()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
+
+        //[HttpGet]
+        //public string Credit()
+        //{
+        //    return "value";
+        //}
+      
     }
 }

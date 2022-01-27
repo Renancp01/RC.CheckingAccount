@@ -1,15 +1,20 @@
 ﻿using System;
-using MediatR;
+using RC.CheckingAccount.Domain.Entities.Validators.Client;
 
 namespace RC.CheckingAccount.Domain.Commands.Client
 {
-    public class RemoveClientCommand : IRequest
+    public class RemoveClientCommand : ClientCommand
     {
-        public Guid Id { get; set; }
-
         public RemoveClientCommand(Guid id)
         {
             Id = id;
+        }
+
+        public override bool IsValid()
+        {
+            ValidationResult = new RemoveClientCommandValidation().Validate(this);
+
+            return ValidationResult.IsValid;
         }
     }
 }

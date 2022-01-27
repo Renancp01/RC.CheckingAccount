@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <Folder Include="Context\" />
+    <Folder Include="EventSourcing\" />
+    <Folder Include="UoW\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,21 +1,23 @@
 ﻿using System;
-using MediatR;
+using RC.CheckingAccount.Domain.Entities.Validators.Client;
 
 namespace RC.CheckingAccount.Domain.Commands.Client
 {
-    public class UpdateClientCommand : IRequest<Entities.Client>
+    public class UpdateClientCommand : ClientCommand
     {
-        public Guid Id { get; set; }
-
-        public string Name { get; private set; }
-
-        public string LastName { get; private set; }
-
         public UpdateClientCommand(Guid id, string name, string lastname)
         {
             Id = id;
-            LastName = lastname;
             Name = name;
+            LastName = lastname;
+        }
+
+      
+        public override bool IsValid()
+        {
+            ValidationResult = new UpdateClientCommandValidation().Validate(this);
+
+            return ValidationResult.IsValid;
         }
     }
 }

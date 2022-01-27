@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +22,7 @@ namespace RC.CheckingAccount.Api.Tests
 
             var result = new Client("renan", string.Empty);
 
-            MediatorMock.Setup(c => c.Send(It.IsAny<CreateClientCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(result);
+            //MediatorMock.Setup(c => c.Send(It.IsAny<CreateClientCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(result);
 
             //Act
             var returns = new CheckingAccountsController(MediatorMock.Object).CreateClient(input);
@@ -39,7 +40,7 @@ namespace RC.CheckingAccount.Api.Tests
 
             var result = new Client("Renan", "Carlos");
 
-            MediatorMock.Setup(c => c.Send(It.IsAny<CreateClientCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(result);
+            //MediatorMock.Setup(c => c.Send(It.IsAny<CreateClientCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(result);
 
             //Act
             var returns = new CheckingAccountsController(MediatorMock.Object).CreateClient(input);
@@ -55,14 +56,32 @@ namespace RC.CheckingAccount.Api.Tests
             //Arrange
             var input = new CreateClientCommand("Renan", "Carlos");
 
-            MediatorMock.Setup(c => c.Send(It.IsAny<CreateClientCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(value:null);
+            //MediatorMock.Setup(c => c.Send(It.IsAny<CreateClientCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(value: null);
 
             //Act
             var returns = new CheckingAccountsController(MediatorMock.Object).CreateClient(input);
 
             //Assert 
-           
+
             Assert.IsType<BadRequestResult>(returns.Result);
+        }
+
+        [Fact]
+        public void CheckingAccountsController_UpdateClient_ReturnOK()
+        {
+            //Arrange
+            var input = new UpdateClientCommand(Guid.NewGuid(), "Renan", "Carlos");
+
+            var result = new Client(Guid.NewGuid(), "Renan", "Carlos");
+
+            //MediatorMock.Setup(c => c.Send(It.IsAny<UpdateClientCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(() => result);
+
+            //Act
+            var returns = new CheckingAccountsController(MediatorMock.Object).UpdateClient(input);
+
+            //Assert 
+            Assert.NotNull(result);
+            Assert.IsType<OkResult>(returns.Result);
         }
     }
 }

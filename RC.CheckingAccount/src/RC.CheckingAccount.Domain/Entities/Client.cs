@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using RC.CheckingAccount.Domain.Entities.Base;
-using RC.CheckingAccount.Domain.Entities.Validators;
 
 namespace RC.CheckingAccount.Domain.Entities
 {
@@ -13,7 +12,7 @@ namespace RC.CheckingAccount.Domain.Entities
             Name = name;
             LastName = lastName;
 
-            Validate(this, new ClientValidator());
+            //Validate(this, new ClientValidator());
         }
 
         public Client(string name, string lastName)
@@ -21,7 +20,7 @@ namespace RC.CheckingAccount.Domain.Entities
             Name = name;
             LastName = lastName;
 
-            Validate(this, new ClientValidator());
+            //Validate(this, new ClientValidator());
         }
 
         public string Name { get; set; }

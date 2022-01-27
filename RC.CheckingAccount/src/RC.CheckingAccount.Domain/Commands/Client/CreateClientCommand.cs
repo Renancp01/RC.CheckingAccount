@@ -1,17 +1,19 @@
-﻿using MediatR;
+﻿using RC.CheckingAccount.Domain.Entities.Validators.Client;
 
 namespace RC.CheckingAccount.Domain.Commands.Client
 {
-    public class CreateClientCommand : IRequest<Entities.Client>
+    public  class CreateClientCommand : ClientCommand
     {
-        public string Name { get; private set; }
-
-        public string LastName { get; private set; }
-
         public CreateClientCommand(string name, string lastname)
         {
-            LastName = lastname;
             Name = name;
+            LastName = lastname;
+        }
+
+        public override bool IsValid()
+        {
+            ValidationResult = new CreateClientValidation().Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 }

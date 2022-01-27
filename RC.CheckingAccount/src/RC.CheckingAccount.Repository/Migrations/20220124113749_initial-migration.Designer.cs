@@ -10,7 +10,7 @@ using RC.CheckingAccount.Repository.Context;
 namespace RC.CheckingAccount.Repository.Migrations
 {
     [DbContext(typeof(CheckingAccountContext))]
-    [Migration("20220124025228_initial-migration")]
+    [Migration("20220124113749_initial-migration")]
     partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,6 +72,7 @@ namespace RC.CheckingAccount.Repository.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Value")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
@@ -103,6 +104,7 @@ namespace RC.CheckingAccount.Repository.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Value")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");

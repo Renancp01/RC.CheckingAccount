@@ -29,7 +29,7 @@ namespace RC.CheckingAccount.Repository.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Value = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Value = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     ClientId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     DateOfCreation = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     DateOfModify = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
@@ -52,7 +52,7 @@ namespace RC.CheckingAccount.Repository.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Value = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Value = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     ClientId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     DateOfCreation = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     DateOfModify = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),

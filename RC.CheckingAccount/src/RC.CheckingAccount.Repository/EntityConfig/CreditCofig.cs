@@ -9,7 +9,9 @@ namespace RC.CheckingAccount.Repository.EntityConfig
         public void Configure(EntityTypeBuilder<Credit> builder)
         {
             builder.HasKey(c => c.Id);
-
+           
+            builder.Property(c => c.Value).HasPrecision(18, 2);
+            
             builder.ToTable("Credits");
         }
     }

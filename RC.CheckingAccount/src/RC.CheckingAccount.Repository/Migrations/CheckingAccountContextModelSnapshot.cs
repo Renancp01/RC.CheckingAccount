@@ -70,6 +70,7 @@ namespace RC.CheckingAccount.Repository.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Value")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
@@ -101,6 +102,7 @@ namespace RC.CheckingAccount.Repository.Migrations
                         .HasColumnType("bit");
 
                     b.Property<decimal>("Value")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");

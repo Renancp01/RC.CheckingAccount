@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
       <PrivateAssets>all</PrivateAssets>
@@ -22,6 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\RC.Core\src\RC.Core\RC.Core.csproj" />
+    <ProjectReference Include="..\RC.CheckingAccount.Domain\RC.CheckingAccount.Domain.csproj" />
     <ProjectReference Include="..\RC.CheckingAccount.Repository\RC.CheckingAccount.Repository.csproj" />
   </ItemGroup>
 
