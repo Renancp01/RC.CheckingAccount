@@ -7,10 +7,14 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["CheckingAccount/src/RC.CheckingAccount.Api/RC.CheckingAccount.Api.csproj", "CheckingAccount/src/RC.CheckingAccount.Api/"]
-RUN dotnet restore "CheckingAccount/src/RC.CheckingAccount.Api/RC.CheckingAccount.Api.csproj"
+COPY ["src/RC.CheckingAccount.Api/RC.CheckingAccount.Api.csproj", "src/RC.CheckingAccount.Api/"]
+COPY ["src/RC.CheckingAccount.Domain/RC.CheckingAccount.Domain.csproj", "src/RC.CheckingAccount.Domain/"]
+COPY ["../RC.Core/src/RC.Core/RC.Core.csproj", "../RC.Core/src/RC.Core/"]
+COPY ["src/RC.CheckingAccount.Repository/RC.CheckingAccount.Repository.csproj", "src/RC.CheckingAccount.Repository/"]
+COPY ["src/RC.CheckingAccount.Application/RC.CheckingAccount.Application.csproj", "src/RC.CheckingAccount.Application/"]
+RUN dotnet restore "src/RC.CheckingAccount.Api/RC.CheckingAccount.Api.csproj"
 COPY . .
-WORKDIR "/src/CheckingAccount/src/RC.CheckingAccount.Api"
+WORKDIR "/src/src/RC.CheckingAccount.Api"
 RUN dotnet build "RC.CheckingAccount.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish

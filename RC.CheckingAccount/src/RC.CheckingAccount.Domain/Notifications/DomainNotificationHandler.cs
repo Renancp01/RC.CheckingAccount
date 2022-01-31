@@ -8,12 +8,11 @@ namespace RC.CheckingAccount.Domain.Notifications
 {
     public class DomainNotificationHandler : INotificationHandler<DomainNotification>
     {
-
         private List<DomainNotification> _notifications;
 
-        public DomainNotificationHandler(List<DomainNotification> notifications)
+        public DomainNotificationHandler()
         {
-            _notifications = notifications;
+            _notifications = new List<DomainNotification>();
         }
 
         public Task Handle(DomainNotification notification, CancellationToken cancellationToken)

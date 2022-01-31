@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using System.IO;
+using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
 
 namespace RC.CheckingAccount.Repository.Context
@@ -7,7 +8,7 @@ namespace RC.CheckingAccount.Repository.Context
     {
         public CheckingAccountContext(DbContextOptions options) : base(options)
         {
-            
+           
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,5 +1,5 @@
 ﻿using System;
-using RC.CheckingAccount.Domain.CommandsHandlers.Core;
+using RC.CheckingAccount.Domain.Commom;
 
 namespace RC.CheckingAccount.Domain.Events.Client
 {
@@ -12,6 +12,7 @@ namespace RC.CheckingAccount.Domain.Events.Client
             LastName = lastnaName;
             AggregateId = id;
         }
+
         public Guid Id { get; set; }
 
         public string Name { get; private set; }

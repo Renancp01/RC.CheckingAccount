@@ -2,7 +2,7 @@
 
 namespace RC.CheckingAccount.Domain.Commands.Client
 {
-    public  class CreateClientCommand : ClientCommand
+    public class CreateClientCommand : ClientCommand
     {
         public CreateClientCommand(string name, string lastname)
         {

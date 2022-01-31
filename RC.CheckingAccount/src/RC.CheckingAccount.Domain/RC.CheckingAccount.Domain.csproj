@@ -6,8 +6,8 @@
 
   <ItemGroup>
     <Folder Include="Entities\Base\" />
-    <Folder Include="Commom\" />
-    <Folder Include="EventHandlers\" />
+    <Folder Include="Events\Debit\" />
+    <Folder Include="Events\Credit\" />
     <Folder Include="Notifications\" />
   </ItemGroup>
 

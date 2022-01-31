@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RC.CheckingAccount.Domain.Interfaces.Core;
@@ -10,12 +11,12 @@ namespace RC.CheckingAccount.Api.Controllers
     public abstract class CustomApiController : ControllerBase
     {
         private readonly DomainNotificationHandler _notifications;
-        public readonly IMediatorHandler Mediator;
+        private readonly IMediatorHandler _mediator;
 
-        protected CustomApiController(DomainNotificationHandler notifications, IMediatorHandler mediator)
+        protected CustomApiController(INotificationHandler<DomainNotification> notifications, IMediatorHandler mediatorHandler)
         {
-            _notifications = notifications;
-            Mediator = mediator;
+            _notifications = (DomainNotificationHandler)notifications;
+            _mediator = mediatorHandler;
         }
 
         protected IEnumerable<DomainNotification> Notifications => _notifications.GetNotifications();
@@ -55,7 +56,7 @@ namespace RC.CheckingAccount.Api.Controllers
 
         protected void NotifyError(string code, string message)
         {
-            Mediator.RaiseEvent(new DomainNotification(code, message));
+            //Mediator.RaiseEvent(new DomainNotification(code, message));
         }
 
         protected void AddIdentityErrors(IdentityResult result)

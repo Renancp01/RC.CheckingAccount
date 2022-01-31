@@ -1,13 +1,12 @@
 ﻿using System.Threading.Tasks;
 using MediatR;
-using RC.CheckingAccount.Domain.CommandsHandlers.Core;
-using RC.CheckingAccount.Domain.Events;
+using RC.CheckingAccount.Domain.Commom;
 using RC.CheckingAccount.Domain.Events.Core;
 using RC.CheckingAccount.Domain.Interfaces.Core;
 
 namespace RC.Core.Bus
 {
-    public class InMemoryBus : IMediatorHandler
+    public sealed class InMemoryBus : IMediatorHandler
     {
         private readonly IMediator _mediator;
         private readonly IEventStore _eventStore;

@@ -1,4 +1,4 @@
-﻿using RC.CheckingAccount.Domain.CommandsHandlers.Core;
+﻿using RC.CheckingAccount.Domain.Commom;
 
 namespace RC.CheckingAccount.Domain.Events.Core
 {

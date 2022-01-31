@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RC.CheckingAccount.Reposito
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RC.CheckingAccount.Api", "src\RC.CheckingAccount.Api\RC.CheckingAccount.Api.csproj", "{7BB4C01A-8032-4B9D-B02E-A370D3702D66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RC.Core", "..\RC.Core\src\RC.Core\RC.Core.csproj", "{52531226-054B-4F99-B8E9-8686AEA29EE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RC.Core", "..\RC.Core\src\RC.Core\RC.Core.csproj", "{52531226-054B-4F99-B8E9-8686AEA29EE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RC.CheckingAccount.Api.Tests", "tests\RC.CheckingAccount.Api.Tests\RC.CheckingAccount.Api.Tests.csproj", "{522CB831-19EC-4AAD-ADB8-1FC0C7EDAE41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RC.CheckingAccount.Api.Tests", "tests\RC.CheckingAccount.Api.Tests\RC.CheckingAccount.Api.Tests.csproj", "{522CB831-19EC-4AAD-ADB8-1FC0C7EDAE41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RC.CheckingAccount.Application", "src\RC.CheckingAccount.Application\RC.CheckingAccount.Application.csproj", "{35A5956D-0EF6-4854-AEB7-33E87EA602F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{522CB831-19EC-4AAD-ADB8-1FC0C7EDAE41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{522CB831-19EC-4AAD-ADB8-1FC0C7EDAE41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{522CB831-19EC-4AAD-ADB8-1FC0C7EDAE41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A5956D-0EF6-4854-AEB7-33E87EA602F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A5956D-0EF6-4854-AEB7-33E87EA602F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A5956D-0EF6-4854-AEB7-33E87EA602F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A5956D-0EF6-4854-AEB7-33E87EA602F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

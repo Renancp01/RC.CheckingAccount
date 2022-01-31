@@ -10,6 +10,8 @@ namespace RC.CheckingAccount.Repository.EntityConfig
         {
             builder.HasKey(c => c.Id);
 
+            builder.Ignore(c => c.IsValid);
+
             builder.ToTable("Clients");
         }
     }

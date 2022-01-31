@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using RC.CheckingAccount.Domain.CommandsHandlers.Core;
+using RC.CheckingAccount.Domain.Commom;
 
 namespace RC.CheckingAccount.Domain.Interfaces.Core
 {

@@ -11,16 +11,12 @@ namespace RC.CheckingAccount.Domain.Entities
             Id = id;
             Name = name;
             LastName = lastName;
-
-            //Validate(this, new ClientValidator());
         }
 
         public Client(string name, string lastName)
         {
             Name = name;
             LastName = lastName;
-
-            //Validate(this, new ClientValidator());
         }
 
         public string Name { get; set; }

@@ -34,9 +34,6 @@ namespace RC.CheckingAccount.Repository.Migrations
                     b.Property<DateTimeOffset?>("DateOfModify")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<bool>("IsValid")
-                        .HasColumnType("bit");
-
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
@@ -54,7 +51,7 @@ namespace RC.CheckingAccount.Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ClientId")
+                    b.Property<Guid>("ClientId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTimeOffset>("DateOfCreation")
@@ -65,9 +62,6 @@ namespace RC.CheckingAccount.Repository.Migrations
 
                     b.Property<DateTimeOffset?>("DateOfModify")
                         .HasColumnType("datetimeoffset");
-
-                    b.Property<bool>("IsValid")
-                        .HasColumnType("bit");
 
                     b.Property<decimal>("Value")
                         .HasPrecision(18, 2)
@@ -86,7 +80,7 @@ namespace RC.CheckingAccount.Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ClientId")
+                    b.Property<Guid>("ClientId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTimeOffset>("DateOfCreation")
@@ -97,9 +91,6 @@ namespace RC.CheckingAccount.Repository.Migrations
 
                     b.Property<DateTimeOffset?>("DateOfModify")
                         .HasColumnType("datetimeoffset");
-
-                    b.Property<bool>("IsValid")
-                        .HasColumnType("bit");
 
                     b.Property<decimal>("Value")
                         .HasPrecision(18, 2)
@@ -116,14 +107,18 @@ namespace RC.CheckingAccount.Repository.Migrations
                 {
                     b.HasOne("RC.CheckingAccount.Domain.Entities.Client", null)
                         .WithMany("Credits")
-                        .HasForeignKey("ClientId");
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("RC.CheckingAccount.Domain.Entities.Debit", b =>
                 {
                     b.HasOne("RC.CheckingAccount.Domain.Entities.Client", null)
                         .WithMany("Debits")
-                        .HasForeignKey("ClientId");
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("RC.CheckingAccount.Domain.Entities.Client", b =>

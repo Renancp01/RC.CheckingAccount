@@ -1,7 +1,9 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using RC.CheckingAccount.Domain.Commands.Client;
+using RC.CheckingAccount.Domain.Commom;
 using RC.CheckingAccount.Domain.Entities;
 using RC.CheckingAccount.Domain.Events.Client;
 using RC.CheckingAccount.Domain.Interfaces;
@@ -37,7 +39,7 @@ namespace RC.CheckingAccount.Domain.CommandsHandlers
                 return await Task.FromResult(false);
             }
 
-            var client = new Client(request.Name, request.LastName);
+            var client = new Client(request.Id, request.Name, request.LastName);
 
             await _clientRepository.AddAsync(client);
 

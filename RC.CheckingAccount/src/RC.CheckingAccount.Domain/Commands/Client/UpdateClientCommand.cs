@@ -11,7 +11,6 @@ namespace RC.CheckingAccount.Domain.Commands.Client
             Name = name;
             LastName = lastname;
         }
-
       
         public override bool IsValid()
         {

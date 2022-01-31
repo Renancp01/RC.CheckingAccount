@@ -11,7 +11,9 @@ namespace RC.CheckingAccount.Repository.EntityConfig
             builder.HasKey(c => c.Id);
 
             builder.Property(c => c.Value).HasPrecision(18, 2);
-            
+
+            builder.Ignore(c => c.IsValid);
+
             builder.ToTable("Debits");
         }
     }
